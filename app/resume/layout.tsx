@@ -1,14 +1,11 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: {
-    default: "Projects",
-    template: "%s | Projects | morenikejipopoola.com",
-  },
+  title: "Resume",
   description: "An overview of some of my personal projects.",
 };
 
-export default function ProjectsLayout({
+export default function ResumeLayout({
   children,
 }: {
   children: React.ReactNode;

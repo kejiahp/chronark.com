@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connect } from "../../utils/db-connect";
+import { connect } from "../../../utils/db-connect";
 import {
   PageviewModel,
   VisitorDeduplicateModel,
-} from "../../utils/pageview-model";
+} from "../../../utils/pageview-model";
 
 export default async function incrementPageview(
   req: NextApiRequest,
@@ -47,7 +47,7 @@ export default async function incrementPageview(
 
       if (existingRecord) {
         // Already counted, return without incrementing
-        return res.status(202).send(null);
+        return res.status(202).json({ counted: false });
       }
 
       // Record this visitor
@@ -55,13 +55,13 @@ export default async function incrementPageview(
     }
 
     // Increment the pageview count
-    await PageviewModel.findOneAndUpdate(
+    const updated = await PageviewModel.findOneAndUpdate(
       { slug },
       { $inc: { count: 1 } },
       { upsert: true, new: true },
     );
 
-    return res.status(202).send(null);
+    return res.status(202).json({ counted: true, count: updated.count });
   } catch (e: any) {
     console.error("Pageview increment error:", e);
     if (e?.message) {
