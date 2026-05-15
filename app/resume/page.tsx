@@ -31,7 +31,7 @@ const experienceList = [
   {
     title: "Senior Software Engineer ",
     company: "Sprungg",
-    location: "Lagos, Nigeria",
+    location: "Lagos, Nigeria ",
     startPeriod: "March 2024",
     endPeriod: "October 2024",
     bullets: [
