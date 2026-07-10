@@ -3,7 +3,15 @@ import { Navigation } from "../components/nav";
 
 const experienceList = [
   {
-    title: "Software Engineer (under academic supervision)",
+    title: "Software Engineer - AI",
+    company: "Intellagentic",
+    location: "Remote, United Kingdom",
+    startPeriod: "June 2026",
+    endPeriod: "Present",
+    bullets: [],
+  },
+  {
+    title: "Software Engineer (under academic supervision of Dr Mabrouka)",
     company: "University of South Wales - IT Department",
     location: "Pontypridd, United Kingdom",
     startPeriod: "November 2025",
